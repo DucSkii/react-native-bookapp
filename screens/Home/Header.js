@@ -34,7 +34,9 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 22,
     fontWeight: 'bold',
-    paddingTop: 7,
+    paddingTop: 5,
+    flex: 1,
+    maxWidth: 190,
   },
   pointsContainer: {
     backgroundColor: '#f8794b',

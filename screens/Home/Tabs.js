@@ -22,6 +22,7 @@ const Tabs = () => {
 const styles = StyleSheet.create({
   container: {
     marginTop: 40,
+    marginBottom: 40,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
@@ -52,9 +53,9 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'white',
-    fontSize: 15,
-    paddingTop: 3,
-    paddingBottom: 3,
+    fontSize: 13,
+    paddingTop: 1,
+    paddingBottom: 1,
   },
   divider: {
     width: 2,

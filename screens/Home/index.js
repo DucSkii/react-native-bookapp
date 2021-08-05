@@ -2,12 +2,14 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import Header from './Header'
 import Tabs from './Tabs'
+import MyBook from './MyBook'
 
 const Home = () => {
   return (
     <View style={styles.container}>
       <Header />
       <Tabs />
+      <MyBook />
       {/* 
       Header - Name, points
       Button 1, 2 ,3

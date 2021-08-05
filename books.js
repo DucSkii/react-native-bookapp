@@ -2,7 +2,7 @@ import Sam from './images/Sam.jpg'
 import TinyDragon from './images/TinyDragon.jpg'
 import Wickedly from './images/Wickedly.jpg'
 
-export const books = [
+const books = [
   {
     id: 1,
     title: 'The Tiny Dragon',
@@ -11,6 +11,7 @@ export const books = [
     rating: 4.5,
     pages: 160,
     language: 'Eng',
+    time: '2d 4h',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
   },
   {
@@ -21,6 +22,7 @@ export const books = [
     rating: 4.2,
     pages: 160,
     language: 'Eng',
+    time: '5d 2h',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
   },
   {
@@ -31,6 +33,9 @@ export const books = [
     rating: 4.8,
     pages: 160,
     language: 'Eng',
+    time: '3d 5h',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
   },
 ]
+
+export default books

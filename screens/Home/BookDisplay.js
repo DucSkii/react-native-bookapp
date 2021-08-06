@@ -1,10 +1,10 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 
 const BookDisplay = ({ image, time }) => {
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
       <Image style={styles.bookContainer}
         source={image}
       />
@@ -12,11 +12,14 @@ const BookDisplay = ({ image, time }) => {
         <View style={{ width: 13, height: 13, borderColor: '#696c74', borderWidth: 1, borderRadius: 100 }} />
         <Text style={styles.time}>{time}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    borderRadius: 12,
+  },
   bookContainer: {
     backgroundColor: 'white',
     width: 150,

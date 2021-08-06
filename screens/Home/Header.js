@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 const Header = () => {
   return (
@@ -8,13 +8,13 @@ const Header = () => {
         <Text style={styles.text}>Good Morning</Text>
         <Text style={styles.textBold}>Ducviet Dao</Text>
       </View>
-      <View style={styles.pointsContainer}>
+      <TouchableOpacity style={styles.pointsContainer}>
         <View style={styles.circle} />
         <View style={{ width: 10 }} />
         <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 18 }}>240</Text>
         <View style={{ width: 6 }} />
         <Text style={{ marginTop: 3, color: 'white' }}>points</Text>
-      </View>
+      </TouchableOpacity>
     </View>
   )
 }

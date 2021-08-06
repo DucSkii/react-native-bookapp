@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
 import BookDisplay from './BookDisplay'
 import books from '../../books'
 
@@ -28,7 +28,9 @@ const MyBook = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>My Book</Text>
-        <Text style={styles.headerText}>see more</Text>
+        <TouchableOpacity>
+          <Text style={styles.headerText}>see more</Text>
+        </TouchableOpacity>
       </View>
       <View style={styles.scrollContainer}>
         <ScrollView

@@ -1,20 +1,21 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 const Tabs = () => {
+
   return (
     <View style={styles.container}>
-      <View style={styles.button1}>
+      <TouchableOpacity style={styles.button1}>
         <Text style={styles.text}>Claim</Text>
-      </View>
+      </TouchableOpacity>
       <View style={styles.divider} />
-      <View style={styles.button2}>
+      <TouchableOpacity style={styles.button2}>
         <Text style={styles.text}>Get Point</Text>
-      </View>
+      </TouchableOpacity>
       <View style={styles.divider} />
-      <View style={styles.button3}>
+      <TouchableOpacity style={styles.button3}>
         <Text style={styles.text}>My Card</Text>
-      </View>
+      </TouchableOpacity>
     </View>
   )
 }

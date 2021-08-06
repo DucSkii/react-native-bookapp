@@ -19,13 +19,27 @@ const App = () => {
   return (
     <NavigationContainer theme={theme}>
       <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
+        screenOptions={({ route }) => {
+          return ({
+            headerShown: route.name === 'Home' ? false : true
+          })
         }}
         initialRouteName={'Home'}
       >
         <Stack.Screen name='Home' component={Tabs} />
-        <Stack.Screen name='BookDetail' component={BookDetail} />
+        <Stack.Screen name='BookDetail' component={BookDetail}
+          options={{
+            title: 'Detail Book',
+            headerStyle: {
+              backgroundColor: 'transparent',
+            },
+            headerTintColor: 'white',
+            headerTitleStyle: {
+              fontSize: 16,
+            },
+            headerTitleAlign: 'center',
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )

@@ -30,9 +30,7 @@ const App = () => {
         <Stack.Screen name='BookDetail' component={BookDetail}
           options={{
             title: 'Detail Book',
-            headerStyle: {
-              backgroundColor: 'transparent',
-            },
+            headerTransparent: true,
             headerTintColor: 'white',
             headerTitleStyle: {
               fontSize: 16,

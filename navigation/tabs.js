@@ -69,15 +69,6 @@ const Tabs = () => {
       <Tab.Screen
         name='Home'
         component={Home}
-      // options={{
-      //   tabBarIcon: (tabInfo) => (
-      //     <Icon
-      //       name='home'
-      //       size={35}
-      //       // color={tintColor}
-      //     />
-      //   )
-      // }}
       />
       <Tab.Screen
         name='Search'

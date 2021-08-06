@@ -4,12 +4,13 @@ import Header from './Header'
 import Tabs from './Tabs'
 import MyBook from './MyBook'
 
-const Home = () => {
+const Home = ({ navigation }) => {
+
   return (
     <View style={styles.container}>
       <Header />
       <Tabs />
-      <MyBook />
+      <MyBook navigation={navigation} />
       {/* 
       Header - Name, points
       Button 1, 2 ,3

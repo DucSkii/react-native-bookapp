@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 import BookDisplay from './BookDisplay'
 import books from '../../books'
 
-const MyBook = () => {
+const MyBook = ({ navigation }) => {
 
   const bookArray = [books[0], books[1], books[2], books[0], books[1], books[2]]
 
@@ -12,13 +12,13 @@ const MyBook = () => {
       if (index === bookArray.length - 1) {
         return (
           <View style={styles.lastBook} key={index}>
-            <BookDisplay time={book.time} image={book.image} />
+            <BookDisplay navigation={navigation} time={book.time} image={book.image} />
           </View>
         )
       }
       return (
         <View style={styles.book} key={index}>
-          <BookDisplay time={book.time} image={book.image} />
+          <BookDisplay navigation={navigation} time={book.time} image={book.image} />
         </View>
       )
     })

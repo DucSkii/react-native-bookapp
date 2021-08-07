@@ -21,15 +21,18 @@ const BookDetail = () => {
             <View style={styles.detailBox}>
               <View style={styles.detailBoxBackground}>
                 <View style={[styles.boxSection, { borderTopLeftRadius: 15, borderBottomLeftRadius: 15, }]}>
-
+                  <Text style={styles.topText}>{books[0].rating}</Text>
+                  <Text style={styles.bottomText}>Rating</Text>
                 </View>
                 <View style={{ height: '40%', backgroundColor: 'white', opacity: 0.15, width: 1, }} />
                 <View style={styles.boxSection}>
-
+                  <Text style={styles.topText}>{books[0].pages}</Text>
+                  <Text style={styles.bottomText}>Numbers of Page</Text>
                 </View>
                 <View style={{ height: '40%', backgroundColor: 'white', opacity: 0.15, width: 1, }} />
                 <View style={[styles.boxSection, { borderTopRightRadius: 15, borderBottomRightRadius: 15, }]}>
-
+                  <Text style={styles.topText}>{books[0].language}</Text>
+                  <Text style={styles.bottomText}>Language</Text>
                 </View>
               </View>
             </View>
@@ -72,7 +75,24 @@ const styles = StyleSheet.create({
   boxSection: {
     flex: 1,
     height: '100%',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 8,
   },
+  topText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 18,
+    textAlign: 'center',
+  },
+  bottomText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 13,
+    opacity: 0.5,
+    padding: 5,
+    textAlign: 'center',
+  }
 })
 
 export default BookDetail

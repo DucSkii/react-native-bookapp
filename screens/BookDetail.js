@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, Image, ImageBackground } from 'react-native'
+import React from 'react'
+import { View, Text, StyleSheet, Image, ImageBackground, ScrollView, TouchableOpacity } from 'react-native'
 import books from '../books'
 
 const BookDetail = () => {
@@ -39,7 +39,28 @@ const BookDetail = () => {
           </View>
         </View>
       </ImageBackground>
-      <Text style={{ color: 'white' }}>asdsad</Text>
+      <View style={styles.description}>
+        <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginBottom: 15 }}>Description</Text>
+        <ScrollView>
+          <Text style={{ color: 'white', opacity: 0.5, fontSize: 18, letterSpacing: 0.3 }}>{books[0].description}</Text>
+        </ScrollView>
+      </View>
+      <View style={styles.footer}>
+        <TouchableOpacity
+          style={{
+            width: '10%',
+            marginRight: '5%',
+            borderRadius: 10,
+            backgroundColor: 'white',
+            opacity: 0.15,
+            padding: 8,
+          }}>
+          <View style={{ width: '100%', height: '100%', borderWidth: 2, borderColor: 'white', borderRadius: 10 }} />
+        </TouchableOpacity>
+        <TouchableOpacity style={{ width: '85%', borderRadius: 10, backgroundColor: '#f9784b', justifyContent: 'center', alignItems: 'center' }}>
+          <Text style={{ color: 'white', fontWeight: 'bold' }}>Start Reading</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   )
 }
@@ -92,7 +113,21 @@ const styles = StyleSheet.create({
     opacity: 0.5,
     padding: 5,
     textAlign: 'center',
-  }
+  },
+  description: {
+    flex: 1,
+    padding: 25,
+  },
+  footer: {
+    flex: 1,
+    flexDirection: 'row',
+    minHeight: 60,
+    maxHeight: 60,
+    backgroundColor: 'transparent',
+    paddingLeft: 25,
+    paddingRight: 25,
+    paddingBottom: 25,
+  },
 })
 
 export default BookDetail

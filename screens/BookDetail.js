@@ -15,9 +15,10 @@ const BookDetail = ({ route }) => {
   if (!book) {
     return null
   }
-  
+
   return (
     <View style={styles.container}>
+      <View style={{ flex: 1, width: '100%', height: 60, position: 'absolute', backgroundColor: 'rgba(00, 0, 0, 0.1)' }} />
       <ImageBackground
         style={styles.image}
         source={book.image}
@@ -86,6 +87,7 @@ const styles = StyleSheet.create({
     width: '100%',
     minHeight: '65%',
     maxHeight: '65%',
+    zIndex: -1,
   },
   detailContainer: {
     marginTop: '25%',

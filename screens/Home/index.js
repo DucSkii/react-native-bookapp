@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { ScrollView, StyleSheet } from 'react-native'
 import Header from './Header'
 import Navigation from './Navigation'
 import MyBook from './MyBook'
@@ -8,7 +8,7 @@ import Tabs from './Tabs'
 const Home = ({ navigation }) => {
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} nestedScrollEnabled={true}>
       <Header />
       <Navigation />
       <MyBook navigation={navigation} />
@@ -19,7 +19,7 @@ const Home = ({ navigation }) => {
       My book
       Best seller, latest, coming soon
       */}
-    </View>
+    </ScrollView>
   )
 }
 

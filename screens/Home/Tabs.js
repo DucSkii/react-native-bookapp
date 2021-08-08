@@ -1,9 +1,18 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
+import books from '../../books'
 
 const Tabs = () => {
 
+  const bestSeller = [books[1], books[2], books[0], books[1], books[2]]
+  const theLatest = [books[2], books[1], books[0], books[1], books[2]]
+  const comingSoon = [books[0], books[1], books[2], books[0], books[2]]
+
   const [tab, setTab] = useState(1)
+
+  const renderBooks = () => {
+
+  }
 
   return (
     <View style={styles.container}>
@@ -13,7 +22,8 @@ const Tabs = () => {
             <Text
               numberOfLines={1}
               style={
-                (tab === 1) ? styles.textSelected : styles.textNotSelected}>
+                (tab === 1) ? styles.textSelected : styles.textNotSelected
+              }>
               Best Seller
             </Text>
           </TouchableOpacity>
@@ -23,7 +33,8 @@ const Tabs = () => {
             <Text
               numberOfLines={1}
               style={
-                (tab === 2) ? styles.textSelected : styles.textNotSelected}>
+                (tab === 2) ? styles.textSelected : styles.textNotSelected
+              }>
               The Latest
             </Text>
           </TouchableOpacity>
@@ -40,6 +51,11 @@ const Tabs = () => {
           </TouchableOpacity>
         </View>
       </View>
+      <View style={styles.books}>
+        <ScrollView nestedScrollEnabled={true}>
+
+        </ScrollView>
+      </View>
     </View >
   )
 }
@@ -50,9 +66,9 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   tabs: {
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'baseline',
+    marginBottom: 15,
   },
   textContainer: {
     flex: 1,
@@ -68,6 +84,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     minWidth: 140,
     fontSize: 16,
+  },
+  books: {
+    height: 250,
   }
 })
 

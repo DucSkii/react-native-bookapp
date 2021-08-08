@@ -12,13 +12,13 @@ const MyBook = ({ navigation }) => {
       if (index === bookArray.length - 1) {
         return (
           <View style={styles.lastBook} key={index}>
-            <BookDisplay navigation={navigation} time={book.time} image={book.image} />
+            <BookDisplay navigation={navigation} id={book.id} time={book.time} image={book.image} />
           </View>
         )
       }
       return (
         <View style={styles.book} key={index}>
-          <BookDisplay navigation={navigation} time={book.time} image={book.image} />
+          <BookDisplay navigation={navigation} id={book.id} time={book.time} image={book.image} />
         </View>
       )
     })

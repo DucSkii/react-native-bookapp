@@ -1,37 +1,49 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Text, StyleSheet, Image, ImageBackground, ScrollView, TouchableOpacity } from 'react-native'
 import books from '../books'
 
-const BookDetail = () => {
+const BookDetail = ({ route }) => {
 
+  const { id } = route.params
+
+  const [book, setBook] = useState(null)
+
+  useEffect(() => {
+    setBook(...books.filter(book => book.id === id))
+  }, [])
+
+  if (!book) {
+    return null
+  }
+  
   return (
     <View style={styles.container}>
       <ImageBackground
         style={styles.image}
-        source={books[0].image}
+        source={book.image}
         blurRadius={100}
       >
         <View style={{ height: '100%' }}>
           <View style={styles.detailContainer}>
-            <Image style={{ height: '50%', width: '35%' }} source={books[0].image} />
+            <Image style={{ height: '50%', width: '35%' }} source={book.image} />
             <View style={{ marginTop: 15 }}>
-              <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold', textAlign: 'center' }}>{books[0].title}</Text>
-              <Text style={{ color: 'white', fontSize: 14, textAlign: 'center', marginTop: 5, }}>{books[0].author}</Text>
+              <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold', textAlign: 'center' }}>{book.title}</Text>
+              <Text style={{ color: 'white', fontSize: 14, textAlign: 'center', marginTop: 5, }}>{book.author}</Text>
             </View>
             <View style={styles.detailBox}>
               <View style={styles.detailBoxBackground}>
                 <View style={[styles.boxSection, { borderTopLeftRadius: 15, borderBottomLeftRadius: 15, }]}>
-                  <Text style={styles.topText}>{books[0].rating}</Text>
+                  <Text style={styles.topText}>{book.rating}</Text>
                   <Text style={styles.bottomText}>Rating</Text>
                 </View>
                 <View style={{ height: '40%', backgroundColor: 'white', opacity: 0.15, width: 1, }} />
                 <View style={styles.boxSection}>
-                  <Text style={styles.topText}>{books[0].pages}</Text>
+                  <Text style={styles.topText}>{book.pages}</Text>
                   <Text style={styles.bottomText}>Numbers of Page</Text>
                 </View>
                 <View style={{ height: '40%', backgroundColor: 'white', opacity: 0.15, width: 1, }} />
                 <View style={[styles.boxSection, { borderTopRightRadius: 15, borderBottomRightRadius: 15, }]}>
-                  <Text style={styles.topText}>{books[0].language}</Text>
+                  <Text style={styles.topText}>{book.language}</Text>
                   <Text style={styles.bottomText}>Language</Text>
                 </View>
               </View>
@@ -42,7 +54,7 @@ const BookDetail = () => {
       <View style={styles.description}>
         <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginBottom: 15 }}>Description</Text>
         <ScrollView>
-          <Text style={{ color: 'white', opacity: 0.5, fontSize: 18, letterSpacing: 0.3 }}>{books[0].description}</Text>
+          <Text style={{ color: 'white', opacity: 0.5, fontSize: 18, letterSpacing: 0.3 }}>{book.description}</Text>
         </ScrollView>
       </View>
       <View style={styles.footer}>
@@ -52,7 +64,7 @@ const BookDetail = () => {
             marginRight: '5%',
             borderRadius: 10,
             backgroundColor: 'white',
-            opacity: 0.15,
+            opacity: 0.12,
             padding: 8,
           }}>
           <View style={{ width: '100%', height: '100%', borderWidth: 2, borderColor: 'white', borderRadius: 10 }} />

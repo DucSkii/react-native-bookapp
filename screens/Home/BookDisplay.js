@@ -1,12 +1,12 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 
-const BookDisplay = ({ image, time, navigation }) => {
+const BookDisplay = ({ id, image, time, navigation }) => {
 
   return (
     <TouchableOpacity
       style={styles.container}
-      onPress={() => navigation.navigate('BookDetail')}
+      onPress={() => navigation.navigate('BookDetail', { id })}
     >
       <Image style={styles.bookContainer}
         source={image}

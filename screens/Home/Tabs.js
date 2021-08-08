@@ -1,68 +1,74 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 const Tabs = () => {
 
+  const [tab, setTab] = useState(1)
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button1}>
-        <Text style={styles.text}>Claim</Text>
-      </TouchableOpacity>
-      <View style={styles.divider} />
-      <TouchableOpacity style={styles.button2}>
-        <Text style={styles.text}>Get Point</Text>
-      </TouchableOpacity>
-      <View style={styles.divider} />
-      <TouchableOpacity style={styles.button3}>
-        <Text style={styles.text}>My Card</Text>
-      </TouchableOpacity>
-    </View>
+      <View style={styles.tabs}>
+        <View style={styles.textContainer}>
+          <TouchableOpacity onPress={() => setTab(1)}>
+            <Text
+              numberOfLines={1}
+              style={
+                (tab === 1) ? styles.textSelected : styles.textNotSelected}>
+              Best Seller
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.textContainer}>
+          <TouchableOpacity onPress={() => setTab(2)}>
+            <Text
+              numberOfLines={1}
+              style={
+                (tab === 2) ? styles.textSelected : styles.textNotSelected}>
+              The Latest
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.textContainer}>
+          <TouchableOpacity onPress={() => setTab(3)}>
+            <Text
+              numberOfLines={1}
+              style={
+                (tab === 3) ? styles.textSelected : styles.textNotSelected
+              }>
+              Coming Soon
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </View >
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 40,
-    marginBottom: 40,
+    width: '100%',
+    height: '100%',
+  },
+  tabs: {
+    flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    backgroundColor: '#2a2d37',
-    borderRadius: 10,
+    alignItems: 'baseline',
   },
-  button1: {
-    backgroundColor: '#2a2d37',
-    alignItems: 'center',
+  textContainer: {
     flex: 1,
-    padding: 20,
-    borderTopLeftRadius: 10,
-    borderBottomLeftRadius: 10,
   },
-  button2: {
-    backgroundColor: '#2a2d37',
-    alignItems: 'center',
-    flex: 1,
-    padding: 20,
-  },
-  button3: {
-    backgroundColor: '#2a2d37',
-    alignItems: 'center',
-    flex: 1,
-    padding: 20,
-    borderTopRightRadius: 10,
-    borderBottomRightRadius: 10,
-  },
-  text: {
+  textSelected: {
     color: 'white',
-    fontSize: 13,
-    paddingTop: 1,
-    paddingBottom: 1,
+    fontWeight: 'bold',
+    minWidth: 140,
+    fontSize: 20,
   },
-  divider: {
-    width: 2,
-    height: '40%',
-    backgroundColor: '#3c3f49',
-  },
+  textNotSelected: {
+    color: 'rgba(255, 255, 255, 0.15)',
+    fontWeight: 'bold',
+    minWidth: 140,
+    fontSize: 16,
+  }
 })
 
 export default Tabs

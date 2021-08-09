@@ -98,7 +98,7 @@ const Tabs = ({ navigation }) => {
         </View>
       </View>
       <View style={styles.books}>
-        <ScrollView nestedScrollEnabled={true}>
+        <ScrollView nestedScrollEnabled={true} showsVerticalScrollIndicator={false}>
           {renderBooks()}
         </ScrollView>
       </View>

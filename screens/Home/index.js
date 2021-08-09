@@ -12,7 +12,7 @@ const Home = ({ navigation }) => {
       <Header />
       <Navigation />
       <MyBook navigation={navigation} />
-      <Tabs />
+      <Tabs navigation={navigation} />
       {/* 
       Header - Name, points
       Button 1, 2 ,3

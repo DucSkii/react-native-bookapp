@@ -3,16 +3,61 @@ import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-nati
 import books from '../../books'
 import BookBlock from './BookBlock'
 
-const Tabs = () => {
+const Tabs = ({ navigation }) => {
 
   const bestSeller = [books[1], books[2], books[0], books[1], books[2]]
   const theLatest = [books[2], books[1], books[0], books[1], books[2]]
-  const comingSoon = [books[0], books[1], books[2], books[0], books[2]]
+  const comingSoon = [books[0], , books[2], books[1], books[0], books[2]]
 
   const [tab, setTab] = useState(1)
 
   const renderBooks = () => {
-
+    if (tab === 1) {
+      return bestSeller.map((book, index) => {
+        if (index === bestSeller.length - 1) {
+          return (
+            <View key={index} style={{ marginBottom: 30 }}>
+              <BookBlock book={book} navigation={navigation} />
+            </View>
+          )
+        }
+        return (
+          <View key={index} style={{ marginBottom: 15 }}>
+            <BookBlock book={book} navigation={navigation} />
+          </View>
+        )
+      })
+    } else if (tab === 2) {
+      return theLatest.map((book, index) => {
+        if (index === bestSeller.length - 1) {
+          return (
+            <View key={index} style={{ marginBottom: 30 }}>
+              <BookBlock book={book} navigation={navigation} />
+            </View>
+          )
+        }
+        return (
+          <View key={index} style={{ marginBottom: 15 }}>
+            <BookBlock book={book} navigation={navigation} />
+          </View>
+        )
+      })
+    } else {
+      return comingSoon.map((book, index) => {
+        if (index === bestSeller.length - 1) {
+          return (
+            <View key={index} style={{ marginBottom: 30 }}>
+              <BookBlock book={book} navigation={navigation} />
+            </View>
+          )
+        }
+        return (
+          <View key={index} style={{ marginBottom: 15 }}>
+            <BookBlock book={book} navigation={navigation} />
+          </View>
+        )
+      })
+    }
   }
 
   return (
@@ -54,7 +99,7 @@ const Tabs = () => {
       </View>
       <View style={styles.books}>
         <ScrollView nestedScrollEnabled={true}>
-          <BookBlock />
+          {renderBooks()}
         </ScrollView>
       </View>
     </View >
@@ -78,7 +123,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     minWidth: 140,
-    fontSize: 20,
+    fontSize: 18,
   },
   textNotSelected: {
     color: 'rgba(255, 255, 255, 0.15)',

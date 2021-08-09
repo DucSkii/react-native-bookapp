@@ -2,18 +2,49 @@ import React from 'react'
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import books from '../../books'
 
-const BookBlock = () => {
+const BookBlock = ({ book, navigation }) => {
+
+  const renderGenre = () => {
+
+    const color = {
+      Drama: 'rgba(85,89,167, 0.3)',
+      Romance: 'rgba(217,110,123, 0.3)',
+      Adventure: 'rgba(102,187,127, 0.3)',
+    }
+
+    const textColor = {
+      Drama: 'rgb(85,89,167)',
+      Romance: 'rgb(217,110,123)',
+      Adventure: 'rgb(102,187,127)',
+    }
+
+    return book.genre.map((genre, index) => {
+      if (index === books[0].genre.length - 1) {
+        return (
+          <View key={index} style={[styles.genreBlock, { backgroundColor: color[genre] }]}>
+            <Text style={[styles.genreText, { color: textColor[genre] }]}>{genre}</Text>
+          </View>
+        )
+      }
+
+      return (
+        <View key={index} style={[styles.genreBlock, { backgroundColor: color[genre], marginRight: 5 }]}>
+          <Text style={[styles.genreText, { color: textColor[genre] }]}>{genre}</Text>
+        </View>
+      )
+    })
+  }
 
   return (
-    <TouchableOpacity style={styles.container}>
-      <Image style={styles.image} source={books[0].image} />
+    <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('BookDetail', { id: book.id })}>
+      <Image style={styles.image} source={book.image} />
       <View style={styles.info}>
-        <View>
-          <Text numberOfLines={1} style={styles.infoTitle}>{books[0].title}</Text>
-          <Text numberOfLines={1} style={styles.infoAuthor}>{books[0].author}</Text>
-          <Text style={styles.infoPages}>{books[0].pages} pages</Text>
+        <View style={{ flex: 1 }}>
+          <Text numberOfLines={1} style={styles.infoTitle}>{book.title}</Text>
+          <Text numberOfLines={1} style={styles.infoAuthor}>{book.author}</Text>
+          <Text style={styles.infoPages}>{book.pages} pages</Text>
           <View style={styles.genre}>
-
+            {renderGenre()}
           </View>
         </View>
         <View style={{
@@ -21,7 +52,7 @@ const BookBlock = () => {
           height: 25,
           backgroundColor: 'white',
           borderRadius: 5,
-          opacity: 0.15,
+          opacity: 0.1,
           alignItems: 'center',
           justifyContent: 'center'
         }}>
@@ -48,7 +79,7 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     paddingBottom: 5,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   infoTitle: {
     color: 'white',
@@ -69,6 +100,21 @@ const styles = StyleSheet.create({
     color: 'white',
     opacity: 0.5,
     marginTop: 20,
+  },
+  genre: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  genreBlock: {
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 10,
+    paddingRight: 10,
+    borderRadius: 6,
+  },
+  genreText: {
+    fontSize: 13,
   },
 })
 

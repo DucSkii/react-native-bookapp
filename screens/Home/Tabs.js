@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
 import books from '../../books'
+import BookBlock from './BookBlock'
 
 const Tabs = () => {
 
@@ -53,7 +54,7 @@ const Tabs = () => {
       </View>
       <View style={styles.books}>
         <ScrollView nestedScrollEnabled={true}>
-
+          <BookBlock />
         </ScrollView>
       </View>
     </View >
